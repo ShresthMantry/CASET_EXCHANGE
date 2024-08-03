@@ -1,0 +1,189 @@
+/* body {
+  font-family: 'Arial', sans-serif;
+}
+
+.user-analytics-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-analytics-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.user-analytics-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 10px 0;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-analytics-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.user-analytics-card h2 {
+  color: #333;
+  font-size: 1.2rem;
+  border-bottom: 2px solid #FF5722;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.user-analytics-big-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #FF5722;
+  margin: 20px 0;
+}
+
+.user-analytics-chart-container {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-analytics-chart-container canvas {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.user-analytics-premium-feature {
+  background-color: #FFEBEE;
+  border: 2px solid #FFCDD2;
+}
+
+.user-analytics-premium-feature h2 {
+  color: #D32F2F;
+}
+
+.user-analytics-unlock-button {
+  background-color: #FF5722;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.user-analytics-unlock-button:hover {
+  background-color: #E64A19;
+} */
+
+
+/* Scoped Styles for User Analytics */
+.user-analytics-container {
+  padding: 30px;
+  background-color: #0E0E0E; /* Slightly lighter dark background for the container */
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8); /* Deep shadow for emphasis */
+}
+
+/* Grid Layout */
+.user-analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Card Styles */
+.user-analytics-card {
+  background: #1D1D23; /* Dark card background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); 
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+}
+
+.user-analytics-card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7); /* Deeper shadow on hover */
+}
+
+.user-analytics-card h2 {
+  margin: 0 0 15px;
+  font-size: 1.5rem;
+  color: #f8f8f8; /* Consistent orange color */
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.user-analytics-big-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ffffff; /* White color for big numbers */
+  margin: 0;
+}
+
+/* Chart Container */
+.user-analytics-chart-container {
+  height: 300px; /* Consistent chart height */
+}
+
+/* Premium Feature Card */
+.user-analytics-premium-feature {
+  background: #333; /* Dark background with slightly lighter border */
+  border: 2px solid #f8f8f8; /* Consistent orange highlight border */
+  border-radius: 10px;
+  color: #e0e0e0; /* Light gray text */
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* Medium shadow */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+}
+
+.user-analytics-premium-feature h2 {
+  color: #f8f8f8; /* Consistent orange color for premium feature heading */
+  margin: 0 0 10px;
+}
+
+.user-analytics-premium-feature p {
+  font-size: 1rem;
+  margin: 0 0 20px;
+}
+
+.user-analytics-unlock-button {
+  background: #ff6600; /* Consistent orange color */
+  color: #ffffff; /* White text */
+  border: none;
+  border-radius: 5px;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  font-weight: 500;
+}
+
+.user-analytics-unlock-button:hover {
+  background: #ff9900; /* Lighter shade of orange on hover */
+  transform: scale(1.05); /* Slightly increase size on hover */
+}

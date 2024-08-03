@@ -1,0 +1,127 @@
+/* Sidebar.css */
+body {
+  font-weight: bold;
+}
+
+:root {
+  --sidebar-background: #0E0E0E;
+  --sidebar-text-color: #f8f8f8;
+  --sidebar-hover-color: #333;
+  --sidebar-active-color: #f8f8f8;
+  --sidebar-border-color: #444;
+}
+
+.sidebar {
+  background-color: var(--sidebar-background);
+  color: var(--sidebar-text-color);
+  height: 100vh;
+  padding: 20px;
+  width: 250px;
+  /* box-shadow: 2px 0 10px rgba(0, 0, 0, 0.7); */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: all 0.3s ease-in-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* border-right: 1px solid var(--sidebar-border-color); */
+  z-index: 1000;
+}
+
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1001;
+  background-color: var(--sidebar-active-color);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.sidebar-toggle:hover {
+  background-color: #ff8c5a;
+}
+
+.sidebar-header {
+  width: 100%;
+  /* border-bottom: 1px solid var(--sidebar-border-color); */
+  margin-bottom: 20px;
+}
+
+.sidebar h2 {
+  margin: 0;
+  padding: 20px 0;
+  color: var(--sidebar-active-color);
+  font-weight: bold;
+  font-size: 24px;
+  transition: color 0.3s;
+}
+
+.sidebar-link {
+  width: 85%;
+  padding: 15px 20px;
+  margin: 5px 0;
+  text-decoration: none;
+  color: var(--sidebar-text-color);
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+
+.sidebar-link:hover {
+  background-color: var(--sidebar-hover-color);
+  color: #fff;
+  transform: translateX(5px);
+}
+
+.sidebar-link.active {
+  background-color: var(--sidebar-active-color);
+  color: #0E0E0E;
+}
+
+.sidebar-icon {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+@media (max-width: 1500px) {
+  .sidebar {
+    width: 250px;
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sidebar.mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 170px;
+  }
+
+  .sidebar-toggle {
+    display: block;
+  }
+
+  .sidebar-toggle.mobile {
+    left: 260px;
+    transition: left 0.3s ease-in-out;
+  }
+
+  .sidebar-toggle.mobile:not(.open) {
+    left: 10px;
+  }
+}

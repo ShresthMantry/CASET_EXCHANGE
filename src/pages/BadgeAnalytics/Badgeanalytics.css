@@ -1,0 +1,102 @@
+.badge-analytics-container {
+  background-color: #0E0E0E;
+  padding: 20px;
+  color: #f8f8f8;
+}
+
+.badge-analytics-container .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  color: #ff6600;
+}
+
+.badge-analytics-container .title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #ff6600;
+}
+
+.badge-analytics-container .stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.badge-analytics-container .stat-card1 {
+  border: 1px solid rgba(235, 231, 231,0.4);
+  background: linear-gradient(135deg, #6843E6, #3A2580);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  width: 200px;
+  margin: 10px;
+}
+
+.badge-analytics-container .stat-card2 {
+  border: 1px solid rgba(235, 231, 231,0.4);
+  background: linear-gradient(135deg, #E95049, #832D29);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  width: 200px;
+  margin: 10px;
+}
+
+.badge-analytics-container .stat-card h2 {
+  margin: 0 0 10px;
+  color: #ff6600;
+  font-size: 1.2rem;
+}
+
+.badge-analytics-container .stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #f8f8f8;
+}
+
+.badge-analytics-container .grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.badge-analytics-container .card {
+  background-color: #1D1D23;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badge-analytics-container .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.badge-analytics-container .card h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  padding-bottom: 10px;
+  color: #f8f8f8;
+}
+
+.badge-analytics-container .chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  width: 100%;
+}
+
+.badge-analytics-container .chart-container canvas {
+  max-width: 100%;
+  max-height: 100%;
+}

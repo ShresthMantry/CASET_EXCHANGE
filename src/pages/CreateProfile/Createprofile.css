@@ -1,0 +1,98 @@
+/* BusinessProfileForm.css */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  max-width: 100%;
+  margin: 0px;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(46, 46, 46, 0.9)); /* Dark glossy background */
+  color: #e0e0e0; /* Light text color for readability */
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* More pronounced shadow for depth */
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ff6600; /* Orange title color to match header and sidebar */
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.section {
+  flex: 1;
+  min-width: 300px; /* Adjusted minimum width for better horizontal layout */
+  padding: 20px;
+  background-color: #ffffff; /* White background for each section */
+  color: #333; /* Dark text color for readability */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for sections */
+}
+
+.section h3 {
+  margin-bottom: 15px;
+  color: #ff6600; /* Orange color for section headers */
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333; /* Dark color for labels */
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc; /* Light border for inputs */
+  background-color: #f9f9f9; /* Light background for input fields */
+  color: #333; /* Dark text color */
+  box-sizing: border-box; /* Ensures padding does not affect width */
+}
+
+.form-group input[type="file"] {
+  padding: 3px; /* Adjust padding for file inputs */
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.error-message {
+  color: #ff6f6f; /* Light red color for error messages */
+  font-size: 12px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff6600; /* Orange color for button */
+  color: #fff; /* White text */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px; /* Space above the button */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+  background-color: #e55e00; /* Slightly darker orange on hover */
+  transform: scale(1.05); /* Slightly enlarge button on hover */
+}
