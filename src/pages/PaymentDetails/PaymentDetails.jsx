@@ -1,107 +1,107 @@
-// src/PaymentDetails.js
 import React, { useState } from 'react';
 import './Paymentdetails.css';
 
 const PaymentDetails = () => {
   const initialTnxHistory = [
-    { tnxID: 'TXN12345', amount: 150, date: '2024-07-25', status: 'Completed' },
-    { tnxID: 'TXN12346', amount: 200, date: '2024-07-20', status: 'Completed' },
-    { tnxID: 'TXN12347', amount: 300, date: '2024-08-01', status: 'Pending' },
-    { tnxID: 'TXN12348', amount: 400, date: '2024-07-29', status: 'Pending' },
+    { tnxID: 'Tnx00123', amount: 127.10, date: '2024-07-25', status: 'Credited' },
+    { tnxID: 'Tnx00124', amount: 127.10, date: '2024-07-25', status: 'Pending' },
+    { tnxID: 'Tnx00125', amount: 127.10, date: '2024-07-25', status: 'On Hold' },
+    { tnxID: 'Tnx00126', amount: 127.10, date: '2024-07-25', status: 'Pending' },
+    { tnxID: 'Tnx00127', amount: 127.10, date: '2024-07-25', status: 'On Hold' },
+    { tnxID: 'Tnx00128', amount: 127.10, date: '2024-07-25', status: 'On Hold' },
   ];
 
   const [searchTerm, setSearchTerm] = useState('');
-  const [statusFilter, setStatusFilter] = useState('All');
+  const [statusFilter, setStatusFilter] = useState('Pending');
   const [dateFilter, setDateFilter] = useState({ start: '', end: '' });
-  const [amountFilter, setAmountFilter] = useState({ min: '', max: '' });
+  const [currentPage, setCurrentPage] = useState(1);
+  const transactionsPerPage = 5;
 
   const handleSearch = (e) => setSearchTerm(e.target.value);
   const handleFilterChange = (e) => setStatusFilter(e.target.value);
   const handleDateChange = (e) => setDateFilter({ ...dateFilter, [e.target.name]: e.target.value });
-  const handleAmountChange = (e) => setAmountFilter({ ...amountFilter, [e.target.name]: e.target.value });
 
   const filteredTnxHistory = initialTnxHistory
     .filter((tnx) =>
-      tnx.tnxID.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      tnx.amount.toString().includes(searchTerm) ||
-      tnx.date.includes(searchTerm) ||
-      tnx.status.toLowerCase().includes(searchTerm.toLowerCase())
+      tnx.tnxID.toLowerCase().includes(searchTerm.toLowerCase())
     )
-    .filter((tnx) => statusFilter === 'All' ? true : tnx.status === statusFilter)
+    .filter((tnx) => statusFilter === 'Pending' ? true : tnx.status === statusFilter)
     .filter((tnx) => {
       const tnxDate = new Date(tnx.date);
       const startDate = dateFilter.start ? new Date(dateFilter.start) : null;
       const endDate = dateFilter.end ? new Date(dateFilter.end) : null;
       return (!startDate || tnxDate >= startDate) && (!endDate || tnxDate <= endDate);
-    })
-    .filter((tnx) => {
-      const minAmount = parseFloat(amountFilter.min) || 0;
-      const maxAmount = parseFloat(amountFilter.max) || Infinity;
-      return tnx.amount >= minAmount && tnx.amount <= maxAmount;
     });
+
+  const indexOfLastTransaction = currentPage * transactionsPerPage;
+  const indexOfFirstTransaction = indexOfLastTransaction - transactionsPerPage;
+  const currentTransactions = filteredTnxHistory.slice(indexOfFirstTransaction, indexOfLastTransaction);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className="payment-details">
-      <h1>Payment Details</h1>
+      <div className="header">
+        <div className="stat-box">
+          <h2>Monthly Revenue</h2>
+          <p>2,345</p>
+          <span>+16.4% from last week</span>
+        </div>
+        <div className="stat-box">
+          <h2>Amount Initiated</h2>
+          <p>2,345</p>
+          <span>+16.4% from last week</span>
+        </div>
+        <div className="stat-box">
+          <h2>Amount Pending</h2>
+          <p>2,345</p>
+          <span>+16.4% from last week</span>
+        </div>
+        <div className="stat-box">
+          <h2>Amount Settled</h2>
+          <p>2,345</p>
+          <span>+16.4% from last week</span>
+        </div>
+      </div>
       
+      <h1>Transaction Statistics</h1>
       <section>
         <div className="filters">
           <div className="filter-group">
-            <label htmlFor="search">Search</label>
             <input
               type="text"
               id="search"
-              placeholder="Search by ID, amount, date..."
+              placeholder="Search by ID"
               value={searchTerm}
               onChange={handleSearch}
             />
           </div>
           <div className="filter-group">
-            <label htmlFor="status">Status</label>
             <select id="status" value={statusFilter} onChange={handleFilterChange}>
-              <option value="All">All</option>
-              <option value="Completed">Completed</option>
               <option value="Pending">Pending</option>
+              <option value="Credited">Credited</option>
+              <option value="On Hold">On Hold</option>
             </select>
           </div>
           <div className="filter-group">
-            <label htmlFor="startDate">Start Date</label>
             <input
               type="date"
               id="startDate"
               name="start"
+              placeholder="Start Date"
               value={dateFilter.start}
               onChange={handleDateChange}
             />
           </div>
           <div className="filter-group">
-            <label htmlFor="endDate">End Date</label>
             <input
               type="date"
               id="endDate"
               name="end"
+              placeholder="End Date"
               value={dateFilter.end}
               onChange={handleDateChange}
             />
-          </div>
-          <div className="amount-filter-group">
-            <label>Amount Range</label>
-            <div className="amount-inputs">
-              <input
-                type="number"
-                name="min"
-                placeholder="Min"
-                value={amountFilter.min}
-                onChange={handleAmountChange}
-              />
-              <input
-                type="number"
-                name="max"
-                placeholder="Max"
-                value={amountFilter.max}
-                onChange={handleAmountChange}
-              />
-            </div>
           </div>
         </div>
         <table>
@@ -114,16 +114,23 @@ const PaymentDetails = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredTnxHistory.map((tnx, index) => (
+            {currentTransactions.map((tnx, index) => (
               <tr key={index}>
                 <td>{tnx.tnxID}</td>
                 <td>${tnx.amount}</td>
                 <td>{tnx.date}</td>
-                <td>{tnx.status}</td>
+                <td className={tnx.status.replace(' ', '-').toLowerCase()}>{tnx.status}</td>
               </tr>
             ))}
           </tbody>
         </table>
+        <div className="pagination">
+          {[...Array(Math.ceil(filteredTnxHistory.length / transactionsPerPage)).keys()].map(number => (
+            <button key={number + 1} onClick={() => paginate(number + 1)}>
+              {number + 1}
+            </button>
+          ))}
+        </div>
       </section>
     </div>
   );
